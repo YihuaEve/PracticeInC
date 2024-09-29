@@ -40,7 +40,7 @@ int main(void){
     
     // check: Invalid number
     if(number < 0){
-        printf("Invalid number: %d, please enter positive integer: \n", number);
+        printf("Invalid number: %d. Please enter a positive integer. \n", number);
         return 0;
     }
     
