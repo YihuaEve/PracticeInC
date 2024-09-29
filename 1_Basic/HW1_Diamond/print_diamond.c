@@ -33,25 +33,25 @@ int print_mark_line(int white_space_count, int mark_count){
 int main(void){
     int number;
 
-	// wait for user input
+    // wait for user input
     printf("Please enter a positive integer: \n");
     scanf("%d", &number);
     printf("The entered number: %d\n", number);
-	
-	// check: Invalid number
+    
+    // check: Invalid number
     if(number < 0){
         printf("Invalid number: %d, please enter positive integer: \n", number);
         return 0;
     }
-	
-    printf("Output Diamond: \n");	
-	// print upper part of diamond
+    
+    printf("Output Diamond: \n");    
+    // print upper part of diamond
     for (int i = 0; i < number; i++){
         int white_space_count = number - i - 1;
         int mark_count = 2 * i + 1;
         print_mark_line(white_space_count, mark_count);
     }
-	// print upper part of diamond
+    // print upper part of diamond
     for (int i = 0; i < (number - 1); i++){
         int white_space_count = i + 1;
         int mark_count = 2 * (number - 2 - i) + 1;
