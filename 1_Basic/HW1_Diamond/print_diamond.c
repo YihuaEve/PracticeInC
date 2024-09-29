@@ -22,6 +22,7 @@ input: 3, output:
 
 #include <stdio.h>
 
+// function: print a line with white spaces and marks
 int print_mark_line(int white_space_count, int mark_count){
     for (int i = 0; i < white_space_count; i++, printf(" "));
     for (int i = 0; i < mark_count; i++, printf("*"));
@@ -32,19 +33,30 @@ int print_mark_line(int white_space_count, int mark_count){
 int main(void){
     int number;
 
-    printf("Please enter a number: \n");
+	// wait for user input
+    printf("Please enter a positive integer: \n");
     scanf("%d", &number);
-
-    if(number < 1) return 0;
-    
-    for (int i = 0; i < number; i++) {
+    printf("The entered number: %d\n", number);
+	
+	// check: Invalid number
+    if(number < 0){
+        printf("Invalid number: %d, please enter positive integer: \n", number);
+        return 0;
+    }
+	
+    printf("Output Diamond: \n");	
+	// print upper part of diamond
+    for (int i = 0; i < number; i++){
         int white_space_count = number - i - 1;
         int mark_count = 2 * i + 1;
         print_mark_line(white_space_count, mark_count);
     }
-    for (int i = 0; i < (number - 1); i++) {
+	// print upper part of diamond
+    for (int i = 0; i < (number - 1); i++){
         int white_space_count = i + 1;
         int mark_count = 2 * (number - 2 - i) + 1;
         print_mark_line(white_space_count, mark_count);
-    }  
+    }
+
+    return 0;
 }
