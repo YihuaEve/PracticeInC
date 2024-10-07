@@ -16,6 +16,9 @@ input: 3, output:
 #include <stdio.h>
 #include <stdlib.h>
 
+#define MIN_NUM 1;
+#define MAX_NUM 19;
+
 // function: print a line with white spaces and marks
 int print_marked_line(int white_space_count, int mark_count){
     for (int i = 0; i < white_space_count; i++, printf(" "));
@@ -24,18 +27,18 @@ int print_marked_line(int white_space_count, int mark_count){
     return 0;
 }
 
-int main(void){
+int main(void){    
     int number;
 
     // 1. Wait for user input
-    printf("Please enter a positive odd integer between 1 and 19: \n");
+    printf("Please enter a positive odd integer between %d and %d: \n", MIN_NUM, MAX_NUM);
     scanf("%d", &number);
     printf("The entered number: %d. \n", number);
 
     // 2. Check: Invalid number
-    if(number < 1 || number > 19 || !(number & 1)){
+    if(number < MIN_NUM || number > MAX_NUM || !(number & 1)){
         printf("[ERROR] Illegal input: %d.\n", number);
-        printf("Please enter a positive odd integer between 1 and 19. \n");
+        printf("Please enter a positive odd integer between %d and %d. \n", MIN_NUM, MAX_NUM);
         return 0;
     }
 
