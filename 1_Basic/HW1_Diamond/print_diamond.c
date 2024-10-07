@@ -31,14 +31,14 @@ int main(void){
     printf("Please enter a positive odd integer between 1 and 19: \n");
     scanf("%d", &number);
     printf("The entered number: %d. \n", number);
-    
+
     // 2. Check: Invalid number
     if(number < 1 || number > 19 || !(number & 1)){
         printf("[ERROR] Illegal input: %d.\n", number);
         printf("Please enter a positive odd integer between 1 and 19. \n");
         return 0;
     }
-    
+
     // 3. Print diamond pattern
     printf("Output: \n");
     for (int i = 0; i < number; i++){
