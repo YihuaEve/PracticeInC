@@ -16,8 +16,8 @@ input: 3, output:
 #include <stdio.h>
 #include <stdlib.h>
 
-#define MIN_NUM 1;
-#define MAX_NUM 19;
+#define MIN_NUM 1
+#define MAX_NUM 19
 
 // function: print a line with white spaces and marks
 int print_marked_line(int white_space_count, int mark_count){
