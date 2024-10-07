@@ -5,7 +5,7 @@ struct node{
     int data;
     struct node *prev;
     struct node *next;
-}
+};
 
 struct node *g_head = NULL, *g_tail = NULL;
 
@@ -53,8 +53,26 @@ void deleteData(int num){
 		if(ptr -> data == num) break;
 		ptr = ptr -> next;
 	}
+	// case1: no found
+	if(NULL == ptr) return;
 	
-    
+	// case2: found
+	if(ptr == g_head && ptr == g_tail){ // case 2-1: delete the only one
+		g_head = g_tail = NULL;
+	}else if(ptr == g_head){ // case 2-2: delete head
+		g_head = g_head -> next;	
+		g_head -> prev = NULL;	
+	}else if(ptr == g_tail){ // case 2-3: delete tail
+		g_tail = g_tail -> prev;
+		g_tail -> next = NULL;
+	}else{ // case 2-4: delete middle node
+		ptr -> prev -> next = ptr -> next;
+		ptr -> next -> prev = ptr -> prev;		
+	}
+	
+	// free ptr at the end to avoid memory leak
+	free(ptr);
+	ptr = NULL;    
 } // end of deleteData();
 
 void printList(void){
@@ -77,7 +95,7 @@ void freeList(void){
     }    
 } // end of freeList();
 
-int main(viod){
+int main(void){
     insertData(5);
     insertData(2);
     insertData(8);
@@ -85,11 +103,13 @@ int main(viod){
 
     insertData(6);
     insertData(10);
+    insertData(10);
     printList();
 
     deleteData(2);
     deleteData(10);
     deleteData(6);
+    deleteData(7);
     printList();
 
     freeList();
